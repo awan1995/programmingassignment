@@ -1,0 +1,41 @@
+<h1>Photos</h1>
+<mat-form-field appearance="fill">
+    <mat-label>Select Album</mat-label>
+    <mat-select (selectionChange)="change($event)">
+      <mat-option *ngFor="let item of albums" [value]="item.id">
+        {{item.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<div class="mc-content-wrapper">
+
+    
+    <ng-container *ngFor="let item of photoList1">
+        <div class="album-card">
+            <a data-toggle="modal" data-target="#myModal" (click)="imageChange(item.url)"><div class="album-image">
+            <img [src]="item.thumbnailUrl" alt="" class="album-image" />
+            </div></a>
+
+            
+            <div class="album-info">
+            <h1>{{item.title}}</h1>
+            <h2>{{getAlbumName(item.albumId)}}</h2>
+            
+              </div>
+          </div>
+    </ng-container>
+    
+     
+  
+</div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-body">
+              <img [src]="currentImage" class="img-responsive" style="
+              width: 470px;
+          ">
+          </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+
+<h1>Albums</h1>
+<mat-form-field appearance="fill">
+  <mat-label>Select User</mat-label>
+  <mat-select (selectionChange)="change($event)">
+    <mat-option *ngFor="let item of users" [value]="item.id">
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div class="mc-content-wrapper">
+
+    
+    <ng-container *ngFor="let item of albumList">
+        <div class="album-card">
+            <div class="album-image">
+            <img src="https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg" alt="" class="album-image" />
+            </div>
+            <div class="album-info">
+            <h1>{{item.title}}</h1>
+            <h2>{{getUserName(item.userId)}}</h2>
+            
+              </div>
+          </div>
+    </ng-container>
+    
+     
+  
+  </div>
